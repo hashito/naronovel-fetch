@@ -8,6 +8,7 @@ from bs4 import BeautifulSoup
 
 # このファイルがあるディレクトリ
 dir_base = os.path.dirname(os.path.abspath(__file__))
+out_dir = "/out"
 
 def get_args():
     parser = ArgumentParser()
@@ -41,7 +42,7 @@ def main():
     num_parts = int(re.search(r"全([0-9]+)部分", pre_info).group(1))
 
     # 小説を保存するディレクトリがなければ作成
-    novel_dir = os.path.normpath(os.path.join(dir_base, "{}".format(ncode)))
+    novel_dir = os.path.normpath(os.path.join(out_dir, "{}".format(ncode)))
     if not os.path.exists(novel_dir):
         os.mkdir(novel_dir)
 
@@ -80,7 +81,6 @@ def main():
             part, num_fetch_rest))
 
         time.sleep(1)  # 次の部分取得までは1秒間の時間を空ける
-
 
 if __name__ == "__main__":
     main()

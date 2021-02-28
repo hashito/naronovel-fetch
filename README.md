@@ -11,7 +11,7 @@ Nコードとは『小説家になろう』における小説の管理番号で�
 `fetch_novel.py`を次のように実行すれば指定の小説の全文が取得されます。なお、二回目以降の実行ではすでにローカルに保存されている部分と『小説家になろう』で公開されている部分の差分のみが取得されます。
 
 ```
-python fetch_novel.py ncode [--reset]
+python fetch_novel.py {ncode} [--reset]
 ````
 
 * ncode: 取得したい小説のNコード
@@ -31,4 +31,11 @@ python fetch_novel.py ncode [--reset]
      :
      :
 ```
+## docker 
+
+```
+docker build . -t naronovel-fetch
+docker run -it -v {localdir}:/out naronovel-fetch n2267be
+```
+
 
